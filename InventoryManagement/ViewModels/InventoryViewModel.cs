@@ -23,10 +23,12 @@ public sealed partial class InventoryViewModel : ObservableObject
         this.inventoryService = inventoryService;
         LoadCommand = new AsyncRelayCommand(LoadAsync);
         OpenDetailsCommand = new AsyncRelayCommand<InventoryItem?>(OpenDetailsAsync);
+
         WeakReferenceMessenger.Default.Register<InventoryItemUpdatedMessage>(this, static (recipient, message) =>
         {
             ((InventoryViewModel)recipient).ReplaceItem(message.Value);
         });
+
         _ = LoadAsync();
     }
 
@@ -66,10 +68,12 @@ public sealed partial class InventoryViewModel : ObservableObject
     {
         if (item is not null)
         {
-            await Shell.Current.GoToAsync(nameof(InventoryManagement.Views.InventoryDetailPage), new Dictionary<string, object>
+            var parms = new Dictionary<string, object>()
             {
-                ["Item"] = item
-            });
+                ["Item"] = item,
+            };
+
+            await Shell.Current.GoToAsync(nameof(InventoryManagement.Views.InventoryDetailPage), parms);
         }
     }
 

@@ -23,7 +23,6 @@ public sealed partial class InventoryDetailViewModel : ObservableObject, IQueryA
 
     [ObservableProperty]
     private string errorMessage = string.Empty;
-
     public InventoryDetailViewModel(IInventoryService inventoryService)
     {
         this.inventoryService = inventoryService;
@@ -43,7 +42,6 @@ public sealed partial class InventoryDetailViewModel : ObservableObject, IQueryA
     }
 
     public string Title => Item is null ? "Inventory item" : Item.ItemName;
-
     public IRelayCommand IncreaseQuantityCommand { get; }
     public IRelayCommand DecreaseQuantityCommand { get; }
     public IAsyncRelayCommand SaveCommand { get; }

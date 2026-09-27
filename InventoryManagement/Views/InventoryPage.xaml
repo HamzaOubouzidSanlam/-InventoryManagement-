@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="InventoryManagement.Views.InventoryPage"
              Title="Inventory">
-    <RefreshView Command="{Binding LoadCommand}" IsRefreshing="{Binding IsBusy}">
+    <RefreshView Command="{Binding LoadCommand}" 
+                 IsRefreshing="{Binding IsBusy}">
         <CollectionView ItemsSource="{Binding Items}"
                         SelectionMode="None">
             <CollectionView.EmptyView>

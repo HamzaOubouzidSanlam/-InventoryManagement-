@@ -25,9 +25,9 @@ namespace InventoryManagement
             builder.Services.AddTransient<InventoryDetailPage>();
             builder.Services.AddSingleton<AppShell>();
 
-#if DEBUG
-    		builder.Logging.AddDebug();
-#endif
+            #if DEBUG
+    		            builder.Logging.AddDebug();
+            #endif
 
             return builder.Build();
         }
