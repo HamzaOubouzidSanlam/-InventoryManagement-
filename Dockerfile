@@ -29,7 +29,7 @@ ENV PATH=${PATH}:${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin:${ANDROID_SDK_ROOT
 
 # Accept SDK licenses and install the packages MAUI needs to build for Android
 RUN yes | sdkmanager --licenses > /dev/null 2>&1; \
-    sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+    sdkmanager "platform-tools" "platforms;android-36" "build-tools;36.0.0"
 
 # ---- .NET MAUI workload (Android component only — iOS workload is useless on Linux) ----
 RUN dotnet workload install maui-android --ignore-failed-sources
